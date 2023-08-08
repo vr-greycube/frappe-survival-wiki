@@ -64,3 +64,5 @@ frappe.set_route("#custom_page");
 });
 
 ```
+
+#### childtable
