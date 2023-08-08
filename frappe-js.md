@@ -49,7 +49,14 @@ color = frappe.ui.color.get('blue', 'extra-light');
 ```
 
 
-#### global events
+#### #### global events
+```
+$(document).on("startup", function () {
+  // custom logic
+  frappe.set_route("#custom_page");
+});
+
+```
 ```
 $(document).on("startup", function () {
 // custom logic
