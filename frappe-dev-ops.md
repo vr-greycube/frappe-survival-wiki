@@ -12,7 +12,7 @@ $ frappe-14/env/bin/python -m pip install --quiet --upgrade -e frappe-14/apps/er
 
 
 ```
-can be used to quickly setup a default email account. Disable the exisiting default sending email account if any (ususally Notifications).
+# can be used to quickly setup a default email account. Disable the exisiting default sending email account if any (ususally Notifications).
 
 
  "mail_server": "smtp.gmail.com",
