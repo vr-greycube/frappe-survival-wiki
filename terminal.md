@@ -24,3 +24,13 @@ find . --include=\*.js -print > all_files.txt
 ```
 
 #### grep
+
+```
+
+grep -nriw searchtext
+
+grep Horn searchtext
+
+find . -name "*.js" -exec grep -nHo the_string {} \;
+
+```
