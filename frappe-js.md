@@ -84,6 +84,7 @@ frm.fields_dict.items.grid.toggle_reqd("item_code", frm.doc.update_stock? true: 
 frm.fields_dict.items.grid.update_docfield_property("remarks","hidden",1)
 
 #  make rate read_only for returns..(note: works only if done in grid-row-render )
+
 frappe.ui.form.on("Sales Invoice", {
   setup: function (frm) {
     $(frm.wrapper).on("grid-row-render", function (e, grid_row) {
