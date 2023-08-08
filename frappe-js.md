@@ -60,7 +60,7 @@ frappe.query_reports["Lead Followup"] = {
 color = frappe.ui.color.get('blue', 'extra-light');
 ```
 
-#### #### global events
+#### global events
 
 ```
 $(document).on("startup", function () {
