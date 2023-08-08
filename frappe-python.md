@@ -36,10 +36,7 @@ _file = frappe.get_doc({
 _file.save()
 ```
 
-
-
-
-
-frappe ```
+#### 
+```
 frappe.logger().debug("some debug message")
 ```
