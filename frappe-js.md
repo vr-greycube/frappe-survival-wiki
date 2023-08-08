@@ -49,4 +49,4 @@ color = frappe.ui.color.get('blue', 'extra-light');
 ```
 
 
-
+global events
