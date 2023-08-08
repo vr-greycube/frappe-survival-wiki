@@ -111,6 +111,24 @@ frappe.ui.form.on("Sales Invoice", {
 
 ```
 
+#### add standard filter in list view
 
-
-#### add filter in list view
+```
+frappe.listview_settings["Some Custom Doctype"] = {
+  onload: function (listview) {
+    listview.page.add_field({
+      fieldtype: "Select",
+      label: __("DocStatus"),
+      fieldname: "docstatus",
+      options: [
+        { label: "Draft", value: 0 },
+        { label: "Submitted", value: 1 },
+        { label: "Cancelled", value: 2 },
+      ],
+      onchange: function () {
+        listview.refresh();
+      },
+    });
+  },
+};
+```
