@@ -10,4 +10,5 @@ from ec_dash.ec_dashboard.report.item_price_update_gc.item_price_update_gc impor
 columns, data = execute({"item_code":"E2012282"})
 
 results_to_values((d['item_code'],d['supplier'].lower()) for d in data)
+
 ```
