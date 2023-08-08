@@ -19,3 +19,26 @@ frappe.query_reports["Lead Followup"] = {
     },
 };
 ```
+
+#### rest api from web form
+```
+ function filterItemGroupAJAX() {
+    $.ajax({
+        url: "/api/resource/Item Group?filters=[[\"item_group_type\", \"=\", \"Super Category\"]]",
+      type: "GET",
+      success: function(result) {
+        var options = []
+        for (var i = 0; i < result.data.length; i++) {
+          options.push({
+            'label': result.data[i].name,
+            'value': result.data[i].name
+          })
+  
+        }
+      },
+      error: function(xhr, status, error) {
+    console.log("AJAX request failed:", status, error);
+      }
+    });
+  };
+  ```
