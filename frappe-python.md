@@ -37,3 +37,9 @@ _file.save()
 ```
 
 
+
+
+
+```
+frappe.logger().debug("some debug message")
+```
