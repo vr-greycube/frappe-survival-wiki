@@ -77,6 +77,10 @@ frappe.ui.form.on(
       // let items =  frm.doc.table_field_fieldname;
 });
 
-# set 
+# set df properties
+    frm.fields_dict.items.grid.grid_rows[0].toggle_editable("rate", false);
+    frm.fields_dict.items.grid.update_docfield_property("rate", "read_only", 0);
+    frm.fields_dict.items.grid.toggle_reqd("item_code", frm.doc.update_stock? true: false);
+    frm.fields_dict.items.grid.update_docfield_property("remarks","hidden",1)
 
 ```
