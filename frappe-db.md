@@ -33,3 +33,4 @@ def get_ageing(filters, age_column):
 # usage
 filters = {"from_date":"2021-02-01","range1" : 15, "range2" : 30, "range3": 60 }
 get_ageing(filters)
+``````
