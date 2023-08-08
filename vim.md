@@ -1,3 +1,3 @@
 # Vim
 
-`:%s/text/replace text/g
+:%s/text/replace text/g
