@@ -153,7 +153,7 @@ frappe.ui.form.on("Sales Invoice", {
     });
   },
 });
-
+# Filter child table item_code field
 frappe.ui.form.on("Delivery Note", "refresh", function(frm) {
     cur_frm.fields_dict['items'].grid.get_field('item_code').get_query = function(doc, cdt, cdn) {
     	return {
