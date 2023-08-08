@@ -44,4 +44,7 @@ df['A'] = df['A'].map(lambda A: A/2.)
 df2 = df.assign(B=lambda df: df.B/2)
 ```
 
-#### script report 
+#### script report with pandas
+
+```
+```
