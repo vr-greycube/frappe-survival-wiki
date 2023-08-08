@@ -84,3 +84,4 @@ frm.fields_dict.items.grid.toggle_reqd("item_code", frm.doc.update_stock? true: 
 frm.fields_dict.items.grid.update_docfield_property("remarks","hidden",1)
 
 ```
+
