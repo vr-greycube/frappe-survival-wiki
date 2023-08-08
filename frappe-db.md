@@ -1,6 +1,7 @@
 # Frappe Db
 
 #### values statement
+
 ```
 def results_to_values(iterable):
     return ",".join(str(d).replace(',)',')') for d in iterable)
@@ -14,7 +15,8 @@ results_to_values((d['item_code'],d['supplier'].lower()) for d in data)
 
 ```
 
-#### generate ageing query 
+#### generate ageing query
+
 ```
 def get_ageing(filters, age_column):
     ageing = ["case", "else '{} +' end".format(filters.get("range3"))]
@@ -32,5 +34,5 @@ def get_ageing(filters, age_column):
 
 # usage
 filters = {"from_date":"2021-02-01","range1" : 15, "range2" : 30, "range3": 60 }
-get_ageing(filters)
-``````
+query = get_ageing(filters)
+```
