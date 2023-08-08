@@ -74,8 +74,7 @@ $(document).on('app_ready', function() {})
 
 $(document).on('ready toolbar_setup', () =>{})
 
-frappe.route_hooks.after_load = (frm) => {
- //}
+frappe.route_hooks.after_load = (frm) => { //}
 
 
 
