@@ -20,6 +20,7 @@ conversion_rate = frappe.db.get_value("Currency Exchange",
 ````
 
 #### make excel file
+
 ```
 # array of arrays
 data_rows=[["sample","data"]]
@@ -36,7 +37,8 @@ _file = frappe.get_doc({
 _file.save()
 ```
 
-#### 
+#### frappe logger
+
 ```
 frappe.logger().debug("some debug message")
 ```
