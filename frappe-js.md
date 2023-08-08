@@ -68,7 +68,7 @@ $(document).on("startup", function () {
   frappe.set_route("#custom_page");
 });
 
-$(document).on('startup', function() {
+$(document).on('startup', function() { })
 
 $(document).on('app_ready', function() {
 
