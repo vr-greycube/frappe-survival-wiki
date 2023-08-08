@@ -28,11 +28,11 @@ df['A'] = df['A'].apply(np.square)
 # Using numpy.square() and [] operator
 df['A'] = np.square(df['A'])
 
-# Apply function NumPy.square() to square the values of two rows 
+# Apply function NumPy.square() to square the values of two rows
 #'A'and'B
 df2 = df.apply(lambda x: np.square(x) if x.name in ['A','B'] else x)
 
-# Apply function single column using transform() 
+# Apply function single column using transform()
 def add_2(x):
     return x+2
 df = df.transform(add_2)
