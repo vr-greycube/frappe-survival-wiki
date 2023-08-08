@@ -179,3 +179,28 @@ df['result'] = df.apply(multiply, axis=1)
 
 ```
 
+#### filter dataframe
+```
+# Filter Rows Based on condition
+df[df["Courses"] == 'Spark'] 
+df.loc[df['Courses'] == value]
+df.query("Courses == 'Spark'")
+df.loc[df['Courses'] != 'Spark']
+df.loc[df['Courses'].isin(values)]
+df.loc[~df['Courses'].isin(values)]
+
+# Filter Multiple Conditions using Multiple Columns
+df.loc[(df['Discount'] >= 1000) & (df['Discount'] <= 2000)]
+df.loc[(df['Discount'] >= 1200) & (df['Fee'] >= 23000 )]
+
+# Using lambda function
+df.apply(lambda row: row[df['Courses'].isin(['Spark','PySpark'])])
+
+# Filter columns that have no None & nana values
+df.dropna()
+
+# Other examples
+df[df['Courses'].str.contains("Spark")]
+df[df['Courses'].str.lower().str.contains("spark")]
+df[df['Courses'].str.startswith("P")]
+```
