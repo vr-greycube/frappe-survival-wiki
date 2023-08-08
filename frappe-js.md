@@ -252,4 +252,21 @@ frappe.ui.form.on("Delivery Note", "refresh", function(frm) {
   ```
 
 
-  
+  ```
+  new frappe.ui.FileUploader({
+	as_dataurl: true,
+	allow_multiple: false,
+	on_success(file) {
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			var workbook = XLSX.read(e.target.result);
+			var csv = XLSX.utils.sheet_to_csv(workbook.Sheets['Supplier Packing List Detail']);
+			var data = frappe.utils.csv_to_array(csv);
+			console.log(data);
+
+			// add your logic here..
+		};
+		reader.readAsArrayBuffer(file.file_obj)
+	}
+});
+```
