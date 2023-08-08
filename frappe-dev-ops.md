@@ -8,6 +8,10 @@ $ frappe-14/env/bin/python -m pip install --quiet --upgrade -e frappe-14/apps/er
 
 ```
 
+email configuration in site_config.json
+
+can be used to quickly setup a default email account. Disable the exisiting default sending email account if any (ususally Notifications).
+
 ```
  "mail_server": "smtp.gmail.com",
   "mail_port": 587,
