@@ -25,3 +25,6 @@ $ frappe-14/env/bin/python -m pip install --quiet --upgrade -e frappe-14/apps/er
   "always_use_account_email_id_as_sender": 0,
   "always_use_account_name_as_sender_name": 0
   ```
+
+
+  
