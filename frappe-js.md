@@ -70,7 +70,7 @@ $(document).on("startup", function () {
 
 $(document).on('startup', function() { })
 
-$(document).on('app_ready', function() {
+$(document).on('app_ready', function() {})
 
 $(document).on('ready toolbar_setup', () =>
 
