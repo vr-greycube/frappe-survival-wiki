@@ -49,28 +49,28 @@ df2 = df.assign(B=lambda df: df.B/2)
 ```
 import pandas as pd
 data = frappe.db.sql("""
-select * 
+select *
 from (
-    select ROW_NUMBER() 
+    select ROW_NUMBER()
         OVER(PARTITION BY tip.item_code , tip.price_list ORDER BY tip.price_list_rate) rn ,
     tip.item_code , tip.price_list , tip.currency , tip.modified , ts.country ,
         ti.manufacturer_pn , ti.item_name ,
-        tip.price_list_rate 
+        tip.price_list_rate
         * IF(currency = 'EUR', 1.1126, 1)
-        * (case TIMESTAMPDIFF(YEAR, tip.modified, curdate()) 
+        * (case TIMESTAMPDIFF(YEAR, tip.modified, curdate())
             when 2 then 1.04 * 1.04
             when 1 then 1.04
             else 1 end)  price_list_rate
-    from `tabItem Price` tip 
+    from `tabItem Price` tip
     inner join tabItem ti on ti.item_code = tip.item_code
     left outer join tabSupplier ts on ts.default_price_list = tip.price_list
     where tip.modified > DATE_SUB(CURDATE(), INTERVAL 3 YEAR)
         and buying = 1
 ) t
 where rn = 1""", as_dict=True)
-    
+
 print(data[:1])
-dfa = pd.DataFrame.from_records(data)    
+dfa = pd.DataFrame.from_records(data)
 
 
 def apply_shipping(country, rate):
@@ -79,31 +79,31 @@ def apply_shipping(country, rate):
     return rate * 1.07
 
 dfa["price_list_rate"] = dfa.apply(lambda x: apply_shipping(x['country'], x['price_list_rate']), axis=1)
-    
+
 competitor_data = frappe.db.sql("""
-    select 
-        tip.item_code ,  
+    select
+        tip.item_code ,
         min(tip.price_list_rate
         * IF(currency = 'EUR', 1.1126, 1)
-        * (case TIMESTAMPDIFF(YEAR, tip.modified, curdate()) 
+        * (case TIMESTAMPDIFF(YEAR, tip.modified, curdate())
             when 2 then 1.04 * 1.04
             when 1 then 1.04
             else 1 end)) competitor_rate
-    from `tabItem Price` tip 
+    from `tabItem Price` tip
     where tip.modified > DATE_SUB(CURDATE(), INTERVAL 3 YEAR)
         and competitor = 1
-    group by item_code 
-""", as_dict=True)  
+    group by item_code
+""", as_dict=True)
 
 print(competitor_data[:1])
 
-dfb = pd.DataFrame.from_records(competitor_data)    
+dfb = pd.DataFrame.from_records(competitor_data)
 
 df = pd.merge(dfa, dfb, on="item_code", how="left")
 
 
 config = frappe.db.get_value(
-"Item Price Configuration", "Item Price Configuration" , 
+"Item Price Configuration", "Item Price Configuration" ,
 ("sale_price_small_customer",
 "sale_price_medium_customer",
 "sale_price_large_customer",
@@ -140,8 +140,9 @@ df.to_dict(orient='split')['data']
 ```
 
 #### add a columns to dataframe
+
 ```
-# Example 1: Add Column using arithmetic operation based on existing column 
+# Example 1: Add Column using arithmetic operation based on existing column
 df["Final_Fee"] = df["Fee"] - df["Discount"]
 
 # Example 2: Add New Column using assign()
@@ -166,7 +167,7 @@ for tier in ("gold", "silver", "bronze"):
 
 df = (df
         .assign(
-                aov = lambda x: x['revenue'] / x['transactions'], 
+                aov = lambda x: x['revenue'] / x['transactions'],
                 conversion_rate = lambda x: x['transactions'] / x['sessions']
         )
 )
@@ -180,9 +181,10 @@ df['result'] = df.apply(multiply, axis=1)
 ```
 
 #### filter dataframe
+
 ```
 # Filter Rows Based on condition
-df[df["Courses"] == 'Spark'] 
+df[df["Courses"] == 'Spark']
 df.loc[df['Courses'] == value]
 df.query("Courses == 'Spark'")
 df.loc[df['Courses'] != 'Spark']
