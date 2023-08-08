@@ -171,3 +171,51 @@ frappe.ui.form.on("Delivery Note", "refresh", function(frm) {
 ```
 
 
+#### fetch api
+
+```
+ fetch_data(args) {
+    let me = this;
+    return fetch(
+      "/api/method/my_app.get_report",
+      {
+        method: "POST",
+        headers: {
+          "X-Frappe-CSRF-Token": frappe.csrf_token,
+          "Content-Type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify(args),
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not OK");
+        }
+        return response.json();
+      })
+      .then((r) => {
+        if (r.message && r.message.total_segments) {
+          // console.log(r.message)
+          frappe.show_alert(`Fetching ${r.message.record_count} records`, 20);
+          // this method is used to load several requests in parallel.
+          me.segment_count = 0;
+          me.total_segments = r.message.total_segments;
+          me.record_count = r.message.record_count;
+
+          let promises = [];
+          for (let idx = 1; idx <= r.message.total_segments; idx++) {
+            let _args = Object.assign({ segment: idx, }, args)
+            promises.push(me.papa_fetch(_args));
+          }
+          Promise.all(promises).then(() => {
+            // 
+          })
+        }
+      })
+      .catch((error) => {
+        console.error(
+          "There has been a problem with your fetch operation:",
+          error
+        );
+      });
+  }```
