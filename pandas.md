@@ -178,6 +178,14 @@ def multiply(row):
 df['result'] = df.apply(multiply, axis=1)
 
 
+Pandas dataframe Mapped column from existing column
+
+def _hash(text):
+    return hashlib.sha224(text.encode("utf-8")).hexdigest()
+
+df["hash"] = df.map(lambda x: _hash(x["description"]))
+
+
 ```
 
 #### filter dataframe
