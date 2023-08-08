@@ -29,7 +29,7 @@ find . --include=\*.js -print > all_files.txt
 
 grep -nriw searchtext
 
-grep Horn "searchtext --exclude-dir=node_modules
+grep Horn "searchtext" --exclude-dir=node_modules
 
 find . -name "*.js" -exec grep -nHo the_string {} \;
 
