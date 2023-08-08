@@ -2,6 +2,7 @@
 
 #### values clause
 
+
 ```
 def results_to_values(iterable):
     return ",".join(str(d).replace(',)',')') for d in iterable)
