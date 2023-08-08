@@ -177,44 +177,5 @@ def multiply(row):
 df['result'] = df.apply(multiply, axis=1)
 
 
-``` columns to dataframe
-```
-# Example 1: Add Column using arithmetic operation based on existing column 
-df["Final_Fee"] = df["Fee"] - df["Discount"]
-
-# Example 2: Add New Column using assign()
-df = pd.DataFrame(technologies)
-df1 = df.assign(Discount_Percent=lambda x: x.Fee * x.Discount / 100)
-
-# Example 3: Add column using np.where()
-df['Discount_rating'] = np.where(df['Discount'] > 2000, 'Good', 'Bad')
-
-# Example 4: Add column using apply()
-df['Final_fee'] = df.apply(lambda x: x['Fee'] - x['Discount'], axis=1)`
-
-# Example 5: Add column to DataFrame using loc[]
-df['Without_discount'] = df.loc[:,['Fee', 'Discount']].sum(axis=1)
-
-# apply and lambda
-def _apply_tier_margin(tier, row):
-    return row[tier] and 100 * (row[tier] - row["price_list_rate"]) / row[tier] or 0
-
-for tier in ("gold", "silver", "bronze"):
-    df[f"{tier}_margin"] = df.apply(lambda x: _apply_tier_margin(tier, x), axis=1)
-
-df = (df
-        .assign(
-                aov = lambda x: x['revenue'] / x['transactions'], 
-                conversion_rate = lambda x: x['transactions'] / x['sessions']
-        )
-)
-
-# Define the function
-def multiply(row):
-    return row['column_1'] * row['column_2']
-df['result'] = df.apply(multiply, axis=1)
-
-
 ```
 
-#### add a
