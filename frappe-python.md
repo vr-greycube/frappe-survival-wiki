@@ -40,6 +40,6 @@ _file.save()
 
 
 
-```
+frappe ```
 frappe.logger().debug("some debug message")
 ```
