@@ -12,6 +12,8 @@ $ frappe-14/env/bin/python -m pip install --quiet --upgrade -e frappe-14/apps/er
 
 
 ```
+
+
  "mail_server": "smtp.gmail.com",
   "mail_port": 587,
   "use_tls": 1,
