@@ -223,7 +223,10 @@ frappe.ui.form.on("Delivery Note", "refresh", function(frm) {
 
 
 
-  #### Hack to add links in document Connections/Dashboard
+  #### Hack to a
+  
+  
+  dd links in document Connections/Dashboard
 ```
 	refresh: function (frm) {
 		$('div').find('.document-link[data-doctype="Purchase Order"]').remove();
