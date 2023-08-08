@@ -45,7 +45,6 @@ frappe.logger().debug("some debug message")
 
 #### chunkerize
 
-
 ```
 def chunks(lst, n):
     """Yield successive n-sized chunks from lst."""
