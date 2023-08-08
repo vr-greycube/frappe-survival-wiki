@@ -7,6 +7,6 @@ $ frappe-14/env/bin/python -m pip install --quiet --upgrade -e frappe-14/apps/er
 
 or
 
-
+$ frappe-bench/env/bin/pip install -r apps/your_app/requirement.txt
 
 ```
