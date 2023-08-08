@@ -138,7 +138,6 @@ frappe.listview_settings["Some Custom Doctype"] = {
 #### filter child table link field, based on row data
 ```
 # e.g. journal entry > accounts > party_type based on row.account
-
 frappe.ui.form.on("Sales Invoice", {
   setup: function (frm) {
     frm.set_query("uom", "items", function (doc, cdt, cdn) {
