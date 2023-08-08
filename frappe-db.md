@@ -15,6 +15,7 @@ results_to_values((d['item_code'],d['supplier'].lower()) for d in data)
 ```
 
 #### generate ageing query 
+```
 def get_ageing(filters, age_column):
     ageing = ["case", "else '{} +' end".format(filters.get("range3"))]
     low = 0
