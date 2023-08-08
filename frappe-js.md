@@ -114,7 +114,7 @@ frappe.ui.form.on("Sales Invoice", {
 #### add standard filter in list view
 
 ```
-
+# create a listview_settings file along with the doctype files.. doctype/some_custom_doctype/some_custom_doctype_list.js
 frappe.listview_settings["Some Custom Doctype"] = {
   onload: function (listview) {
     listview.page.add_field({
