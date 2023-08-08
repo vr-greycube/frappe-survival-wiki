@@ -48,8 +48,8 @@ frappe.query_reports["Lead Followup"] = {
 color = frappe.ui.color.get('blue', 'extra-light');
 ```
 
-
 #### #### global events
+
 ```
 $(document).on("startup", function () {
   // custom logic
@@ -57,6 +57,7 @@ $(document).on("startup", function () {
 });
 
 ```
+
 ```
 $(document).on("startup", function () {
 // custom logic
@@ -66,12 +67,13 @@ frappe.set_route("#custom_page");
 ```
 
 #### child table
+
 ```
 # add row event
 frappe.ui.form.on(
   "table_field_fieldname",
   "table_field_fieldname_add",
-  function (frm) { 
+  function (frm) {
       // let items =  frm.doc.table_field_fieldname;
 });
 
