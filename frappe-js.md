@@ -220,3 +220,31 @@ frappe.ui.form.on("Delivery Note", "refresh", function(frm) {
       });
   }
   ```
+
+
+
+  Add links in document Connections/Dashboard
+
+	refresh: function (frm) {
+		$('div').find('.document-link[data-doctype="Purchase Order"]').remove();
+
+		let link = $(`
+		<div class="document-link" data-doctype="Purchase Order">
+			<div class="document-link-badge" data-doctype="Purchase Order"> <span class="count">1</span> <a
+				class="badge-link">Purchase Order</a> </div> <span class="open-notification hidden"
+			title="Open Purchase Order"> </span> <button class="btn btn-new btn-secondary btn-xs icon-btn"
+			data-doctype="Purchase Order"> <svg class="icon icon-sm">
+				<use href="#icon-add"></use>
+			</svg> </button>
+		</div>
+		`);
+
+		link.on('click', function () {
+			// frm.dashboard.open_document_list($(this).closest('.document-link'));
+			frappe.route_options = { 'name': ['in', 'PUR-ORD-2022-00042'] };
+			frappe.set_route("List", "Purchase Order", "List");
+
+		})
+
+		$('div').find('.document-link[data-doctype="Supplier Packing List Art"]').after(link);
+	}
