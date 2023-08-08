@@ -83,5 +83,17 @@ frm.fields_dict.items.grid.update_docfield_property("rate", "read_only", 0);
 frm.fields_dict.items.grid.toggle_reqd("item_code", frm.doc.update_stock? true: false);
 frm.fields_dict.items.grid.update_docfield_property("remarks","hidden",1)
 
+
+frappe.ui.form.on("Sales Invoice", {
+  setup: function (frm) {
+    $(frm.wrapper).on("grid-row-render", function (e, grid_row) {
+      if (frm.doc.is_return && grid_row.grid.df.fieldname == "items") {
+        grid_row.activate();
+        grid_row.toggle_editable("rate", false);
+      }
+    });
+  },
+});
+
 ```
 
