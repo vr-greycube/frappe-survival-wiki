@@ -1,5 +1,6 @@
 # Git
 
+```
 # go from main to version-14 in local without fetching all remote branches
 # edit .git/config > replace main with version-14
 
@@ -18,3 +19,5 @@ git fetch
 git log HEAD..upstream/main
 
 
+
+```
