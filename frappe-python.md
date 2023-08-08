@@ -82,6 +82,7 @@ def add_images(data, workbook, worksheet=""):
                     print(e)
                     pass
 
+# openpyxl set images in cells from url
 
 def _set_images(workbook, worksheet="Sheet1"):
     """
