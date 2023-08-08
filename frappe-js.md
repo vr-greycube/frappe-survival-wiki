@@ -251,7 +251,7 @@ frappe.ui.form.on("Delivery Note", "refresh", function(frm) {
 
   ```
 
-#### Read xlsx in browser: [SheetJs https://sheetjs.com
+#### Read xlsx in browser: [SheetJs] https://sheetjs.com
   ```
   new frappe.ui.FileUploader({
 	as_dataurl: true,
