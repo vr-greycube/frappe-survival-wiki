@@ -210,4 +210,10 @@ df[df['Courses'].str.startswith("P")]
 [https://sparkbyexamples.com/pandas/pandas-filter-rows-by-conditions/?expand_article=1](https://sparkbyexamples.com/pandas/pandas-filter-rows-by-conditions/?expand_article=1)
 
 #### pandas iterrows
+```
+df = df.reset_index()
 
+for idx , row in df.iterrows():
+    print(row["name"])
+
+```
