@@ -67,6 +67,12 @@ frappe.set_route("#custom_page");
 
 #### child table
 ```
-
+# add row event
+frappe.ui.form.on(
+  "table_field_fieldname",
+  "table_field_fieldname_add",
+  function (frm) { 
+      // let items =  frm.doc.table_field_fieldname;
+});
 
 ```
