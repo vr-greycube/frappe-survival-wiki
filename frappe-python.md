@@ -19,3 +19,18 @@ conversion_rate = frappe.db.get_value("Currency Exchange",
                                       ```
 ````
 
+```
+# array of arrays
+data_rows=[["sample","data"]]
+
+from frappe.utils.xlsxutils import make_xlsx
+xlsx_file = make_xlsx(data_rows, "Sample Data")
+file_data = xlsx_file.getvalue()
+
+_file = frappe.get_doc({
+"doctype": "File",
+"file_name": "Sample Data.xlsx,
+"folder": "Home/Attachments",
+"content": file_data})
+_file.save()
+```
