@@ -70,13 +70,6 @@ $(document).on("startup", function () {
 
 ```
 
-```
-$(document).on("startup", function () {
-// custom logic
-frappe.set_route("#custom_page");
-});
-
-```
 
 #### child table
 
