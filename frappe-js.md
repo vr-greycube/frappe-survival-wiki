@@ -153,4 +153,15 @@ frappe.ui.form.on("Sales Invoice", {
     });
   },
 });
+
+frappe.ui.form.on("Delivery Note", "refresh", function(frm) {
+    cur_frm.fields_dict['items'].grid.get_field('item_code').get_query = function(doc, cdt, cdn) {
+    	return {
+    		filters:[
+    			['Item', 'item_name', '=', 'test 1'],
+    		]
+    	}
+    }
+});
+
 ```
