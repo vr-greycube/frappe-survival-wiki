@@ -249,4 +249,4 @@ frappe.ui.form.on("Delivery Note", "refresh", function(frm) {
 		$('div').find('.document-link[data-doctype="Supplier Packing List Art"]').after(link);
 	}
 
-  ``````
+  ```
