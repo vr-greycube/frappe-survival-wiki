@@ -21,6 +21,7 @@ frappe.query_reports["Lead Followup"] = {
 ```
 
 #### rest api from web form
+
 ```
  function filterItemGroupAJAX() {
     $.ajax({
@@ -33,7 +34,7 @@ frappe.query_reports["Lead Followup"] = {
             'label': result.data[i].name,
             'value': result.data[i].name
           })
-  
+
         }
       },
       error: function(xhr, status, error) {
@@ -41,4 +42,8 @@ frappe.query_reports["Lead Followup"] = {
       }
     });
   };
-  ```
+```
+
+```
+color = frappe.ui.color.get('blue', 'extra-light');
+```
