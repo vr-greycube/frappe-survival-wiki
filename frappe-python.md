@@ -82,4 +82,37 @@ def add_images(data, workbook, worksheet=""):
                     print(e)
                     pass
 
+
+def _set_images(workbook, worksheet="Sheet1"):
+    """
+    Iterate over cells and set image if cell value starts with /files/ or https://
+    and extension in .jpg, .jpeg, .png
+    """
+    ws = workbook.get_sheet_by_name(worksheet)
+    for row in ws.iter_rows(min_row=1, max_col=ws.max_column, max_row=ws.max_row):
+        for cell in row:
+            if cell.value and (
+                cstr(cell.value).startswith("https://")
+                or cstr(cell.value).startswith("/files/")
+            ):
+                _, extension = os.path.splitext(cell.value)
+                if extension.lower() in [".png", ".jpg", ".jpeg"]:
+                    try:
+                        content = None
+                        if cell.value.startswith("https://"):
+                            content = requests.get(cell.value).content
+                        else:
+                            item_file = frappe.get_doc("File", {"file_url": cell.value})
+                            content = item_file.get_content()
+                        if content:
+                            image = openpyxl.drawing.image.Image(io.BytesIO(content))
+                            image.height = 100
+                            image.width = 100
+                            ws.add_image(image, cell.coordinate)
+                            ws.row_dimensions[cell.row].height = 100
+                    except Exception as e:
+                        print(e)
+                        pass
+
+
 ```
