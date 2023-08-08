@@ -47,3 +47,6 @@ frappe.query_reports["Lead Followup"] = {
 ```
 color = frappe.ui.color.get('blue', 'extra-light');
 ```
+
+
+
