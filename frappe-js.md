@@ -18,6 +18,18 @@ frappe.query_reports["Lead Followup"] = {
         return value;
     },
 };
+
+  formatter(value, row, column, data, format_cell) {
+    if (column.fieldname == "reference_name" && data.reference_name) {
+      let form_link = frappe.utils.get_form_link(
+        data.reference_doctype,
+        data.reference_name
+      );
+      return `<a class="text-muted grey" href="${form_link}">${value}</a>`;
+    }
+    return format_cell(value, row, column, data);
+  },
+
 ```
 
 #### rest api from web form
@@ -98,4 +110,3 @@ frappe.ui.form.on("Sales Invoice", {
 
 
 ```
-
