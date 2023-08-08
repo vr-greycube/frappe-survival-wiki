@@ -77,4 +77,4 @@ def chunks(lst, n):
                         ws.row_dimensions[row + 1].height = 90
                 except Exception as e:
                     print(e)
-                    pass
+                    pass``````
