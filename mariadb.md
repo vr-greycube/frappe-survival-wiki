@@ -11,4 +11,15 @@ Order By TABLE_SIZE_in_MB desc
 ```
 
 
-#### values 
+#### values statement
+```
+with t(name)
+as (
+VALUES 
+	('CCU1-T-223'),
+	('PNQ3-T-51'),
+	('PNQ3-T-48')
+)	
+select * from t
+	
+```
