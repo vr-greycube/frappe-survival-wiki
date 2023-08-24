@@ -9,3 +9,5 @@ FROM information_schema.TABLES
 where TABLE_SCHEMA <> 'information_schema' -- and table_schema = ''
 Order By TABLE_SIZE_in_MB desc
 ```
+
+
