@@ -27,7 +27,7 @@ find . --include=\*.js -print > all_files.txt
 
 ```
 
-grep -nriw "searchtext" --include="
+grep -nriw "searchtext" --include="*.py"
 
 grep Horn "searchtext" --exclude-dir={node_modules,\*logs\*}
 
