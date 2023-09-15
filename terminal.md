@@ -38,4 +38,6 @@ find . -name "*.js" -exec grep -nHo the_string {} \;
 
 #### scp
 
-``````
+```
+scp test.txt userbravo@destination:/location2
+```
