@@ -34,3 +34,6 @@ grep Horn "searchtext" --exclude-dir={node_modules,\*logs\*}
 find . -name "*.js" -exec grep -nHo the_string {} \;
 
 ```
+
+
+###
