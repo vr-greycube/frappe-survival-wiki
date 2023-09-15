@@ -35,7 +35,6 @@ find . -name "*.js" -exec grep -nHo the_string {} \;
 
 ```
 
-
 #### scp
 
 ```
