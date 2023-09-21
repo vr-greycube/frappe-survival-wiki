@@ -2,6 +2,9 @@
 
 #### Docs
 
+https://developer-docs.amazon.com/sp-api/docs/welcome
+
+
 https://developer-docs.amazon.com/sp-api/docs/self-authorization#to-self-authorize-your-application-seller-application
 
 #### YT
