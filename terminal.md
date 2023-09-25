@@ -8,6 +8,9 @@
 
 find . -type f -not -path "*/__pycache__/*" -printf "%TY-%Tm-%Td %TT %p\n" | sort -n
 
+find -printf "%TY-%Tm-%Td %TT %p\n" | sort -n
+
+
 # sorted by modified reverse
 
 find . -type f -not -path "*/__pycache__/*" -printf "%TY-%Tm-%Td %TT %p\n" | sort -nr
