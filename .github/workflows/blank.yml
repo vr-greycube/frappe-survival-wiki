@@ -3,7 +3,7 @@ name: Sync Upstream Repository
 on:
   schedule:
     - cron: '0 6 * * *'  # Runs every day at 6:00 UTC
-  workflow_dispatch:     # Allows manual triggering
+  # workflow_dispatch:     # Allows manual triggering
 
 jobs:
   sync-upstream:
